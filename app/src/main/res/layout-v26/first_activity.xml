@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_act_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".FirstActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/number_of_players_back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:id="@+id/number_of_players"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="25sp"
+            android:textColor="#fff00000"
+            android:fontFamily= "@font/font_awesome_5_pro_light_300"
+            android:text="\uf292"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/add_player_back"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/number_of_players_back"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        app:cardBackgroundColor="#fff00000"
+        >
+
+        <EditText
+            android:id="@+id/add_player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:autofillHints="@string/enter_name"
+            android:background="#fff"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/enter_name"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="#FF030303"
+            tools:targetApi="o" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/done_button"
+        android:layout_below="@id/add_player_back"
+        android:layout_centerInParent="true"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:clickable="false"
+        android:layout_marginTop="25dp"
+        android:textSize="25sp"
+        android:fontFamily= "@font/font_awesome_5_pro_light_300"
+        android:text="\uf00c" />
+
+    <TextView
+        android:id="@+id/settings_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:textSize="25sp"
+        android:fontFamily= "@font/font_awesome_5_pro_light_300"
+        android:text="\uf1de" />
+
+    <ImageView
+        android:id="@+id/mafia"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:contentDescription="@string/mafia_logo"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:textSize="25sp"
+        android:text="@string/m_a_f_i_a"
+        tools:ignore="RelativeOverlap" />
+
+</RelativeLayout>
