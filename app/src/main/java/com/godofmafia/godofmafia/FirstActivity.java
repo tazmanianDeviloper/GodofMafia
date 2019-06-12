@@ -38,14 +38,20 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         addPlayer = findViewById(R.id.add_player);
         doneButton = findViewById(R.id.done_button);
         settingsButton = findViewById(R.id.settings_button);
+
+    }
+
+    public void onStart () {
+        super.onStart();
+        addPlayers();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.add_player:
+/*            case R.id.add_player:
                 addPlayers();
-                break;
+                break;*/
             case R.id.done_button:
                 openSecondActivity();
                 break;
@@ -68,9 +74,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     // increment the total number of players.
                     playerSum++;
                     // display the total number of players next the hash tag.
-                    numberOfPlayers.append(Integer.toString(playerSum), 8, 12);
+                    numberOfPlayers.append(Integer.toString(playerSum));
                     // keep the soft keyboard available for the next entry.
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+                    //imm.showSoftInput(addPlayer,InputMethodManager.SHOW_IMPLICIT);
                 }
                 return false;
             }
