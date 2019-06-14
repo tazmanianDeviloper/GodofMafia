@@ -47,16 +47,4 @@
         android:textColor="#0A0A0A"
         android:fontFamily= "@font/font_awesome_5_pro_light_300"
         android:text="\uf1de" />
-
-    <Button
-        android:id="@+id/confirm_button"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:textSize="20sp"
-        android:text="CONFIRM"
-        />
-
 </RelativeLayout>

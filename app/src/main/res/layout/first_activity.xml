@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
+    android:background="@drawable/mafia_layout_background"
     tools:context=".FirstActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/number_of_players_back"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
         app:cardBackgroundColor="#fff00000"
@@ -26,12 +27,13 @@
             android:layout_marginTop="3dp"
             android:layout_marginRight="3dp"
             android:layout_marginBottom="3dp"
-            android:gravity="center|start"
-            android:textSize="12sp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textSize="30sp"
             android:background="@color/cardview_light_background"
             android:textColor="#fff00000"
             android:fontFamily= "@font/font_awesome_5_pro_light_300"
-            android:text=" \uf292"/>
+            android:text="\uf292"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -74,7 +76,9 @@
         android:layout_below="@+id/add_player_back"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
-        app:cardBackgroundColor="#fff00000">
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="#fff00000"
+        >
 
         <TextView
             android:id="@+id/done_button"
@@ -84,12 +88,14 @@
             android:layout_marginTop="3dp"
             android:layout_marginRight="3dp"
             android:layout_marginBottom="3dp"
-            android:background="#fff"
-            android:clickable="false"
+            android:background="#0000ffff"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/font_awesome_5_pro_light_300"
             android:gravity="center|start"
             android:text=" \uf00c    Done"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+           />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -103,20 +109,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginEnd="5dp"
-        android:textSize="25sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textSize="30sp"
         android:textColor="#0A0A0A"
         android:fontFamily= "@font/font_awesome_5_pro_light_300"
         android:text="\uf1de" />
 
     <ImageView
-        android:id="@+id/mafia"
+        android:id="@+id/mafiaLogo"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:contentDescription="@string/mafia_logo"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/godfather_hand_black" />
 
     <TextView
         android:id="@+id/title"
@@ -125,8 +133,8 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/mafia"
-        android:layout_toEndOf="@+id/mafia"
+        android:layout_toRightOf="@+id/mafiaLogo"
+        android:layout_toEndOf="@+id/mafiaLogo"
         android:layout_toLeftOf="@+id/settings_button"
         android:layout_toStartOf="@+id/settings_button"
         android:layout_alignParentTop="true"

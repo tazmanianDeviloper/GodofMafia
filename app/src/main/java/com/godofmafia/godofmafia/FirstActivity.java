@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,6 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     EditText addPlayer;
     TextView doneButton;
     TextView settingsButton;
-    InputMethodManager imm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,24 +39,34 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         doneButton = findViewById(R.id.done_button);
         settingsButton = findViewById(R.id.settings_button);
 
+        addPlayer.setOnClickListener(this);
+        doneButton.setOnClickListener(this);
+        settingsButton.setOnClickListener(this);
     }
 
-    public void onStart () {
-        super.onStart();
-        addPlayers();
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-/*            case R.id.add_player:
+            case R.id.add_player:
                 addPlayers();
-                break;*/
+                break;
             case R.id.done_button:
-                openSecondActivity();
+                if (playerSum < 5){
+                    Toast.makeText(this, "Minimum of 5 players are needed", Toast.LENGTH_LONG)
+                            .show();
+                }
+                if (playerSum >= 5){
+                    openSecondActivity();
+                }
                 break;
             case R.id.settings_button:
-
+// TODO: 6/14/2019 Set Settings
                 break;
         }
     }
@@ -73,10 +83,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     addPlayer.getText().clear();
                     // increment the total number of players.
                     playerSum++;
+                    // clear the last sum before addition.
+                    numberOfPlayers.setText("");
                     // display the total number of players next the hash tag.
-                    numberOfPlayers.append(Integer.toString(playerSum));
-                    // keep the soft keyboard available for the next entry.
-                    //imm.showSoftInput(addPlayer,InputMethodManager.SHOW_IMPLICIT);
+                    numberOfPlayers.setText(String.valueOf(playerSum));
                 }
                 return false;
             }

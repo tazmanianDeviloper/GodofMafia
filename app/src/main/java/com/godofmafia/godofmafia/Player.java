@@ -1,31 +1,23 @@
 package com.godofmafia.godofmafia;
+
 /*
-import java.util.ArrayList;
-import java.util.List;
-
 class Player {
-    private List <String> names = new ArrayList<>(100);
-    private static Characters character;
 
-    public List<String> getNames() {
+    private String names;
+    private String character;
+// getters
+    public String getNames() {
         return names;
     }
-
-    public void setNames(List<String> names) {
-        this.names = names;
-    }
-
-    public static Characters getCharacter() {
+    public String getCharacter() {
         return character;
     }
-
-    public static void setCharacter(Characters character) {
-        Player.character = character;
+// setters
+    public void setNames(String names) {
+        this.names = names;
     }
-
-    public String toString(){
-        return names;
+    public void setCharacter(String character) {
+        this.character = character;
     }
-
 }
 */
