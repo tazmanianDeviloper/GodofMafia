@@ -1,17 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/second_act_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mafia_layout_background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sun_or_moon_back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="30dp"
+        app:cardBackgroundColor="#703F51B5"
+        >
+        <TextView
+            android:id="@+id/sun_or_moon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textSize="30sp"
+            android:textColor="#FF030303"
+            android:fontFamily= "@font/font_awesome_5_pro_light_300"
+            android:text="\uf755"/>
+    </androidx.cardview.widget.CardView>
+
     <ImageView
-        android:id="@+id/mafiaLogo"
+        android:id="@+id/settings_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
+        android:clickable="true"
+        android:focusable="true"
         android:contentDescription="@string/mafia_logo"
         app:srcCompat="@drawable/godfather_hand_black" />
 
@@ -22,41 +57,41 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/mafiaLogo"
-        android:layout_toEndOf="@+id/mafiaLogo"
-        android:layout_toLeftOf="@+id/settings_button"
-        android:layout_toStartOf="@+id/settings_button"
+        android:layout_toRightOf="@+id/settings_button"
+        android:layout_toEndOf="@+id/settings_button"
+        android:layout_toLeftOf="@id/sun_or_moon_back"
+        android:layout_toStartOf="@id/sun_or_moon_back"
         android:layout_alignParentTop="true"
         android:textSize="25sp"
         android:text="@string/m_a_f_i_a" />
 
-    <TextView
-        android:id="@+id/settings_button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="40sp"
-        android:textColor="#0A0A0A"
-        android:fontFamily= "@font/font_awesome_5_pro_light_300"
-        android:text="\uf1de" />
-
-    <Button
-        android:id="@+id/confirm_button"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/confirm_button_back"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
-        android:textSize="20sp"
-        android:text="CONFIRM"
-        />
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="#70F00000"
+        >
+
+        <TextView
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#0000ffff"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/font_awesome_5_pro_light_300"
+            android:gravity="center|start"
+            android:text=" \uf00c  CONFIRM"
+            android:textSize="25sp"
+            />
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

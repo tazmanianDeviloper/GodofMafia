@@ -1,26 +1,25 @@
 package com.godofmafia.godofmafia;
-/*
 
-public class Characters {
+class Characters {
 
-   private String name;
-   private String description;
+   String name;
+   String description;
 
-// getters
-    public String getName() {
+    // getters
+    String getName() {
         return name;
     }
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
-// setters
-    public void setName(String name) {
+
+    // setters
+    void setName(String name) {
         this.name = name;
     }
-    public void setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
     }
 }
-*/
 
 

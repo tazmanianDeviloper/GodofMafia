@@ -1,23 +1,24 @@
 package com.godofmafia.godofmafia;
 
-/*
-class Player {
+class Player extends Characters {
 
-    private String names;
-    private String character;
-// getters
+    String names;
+    Characters character;
+
+    // getters
     public String getNames() {
         return names;
     }
-    public String getCharacter() {
+    public Characters getCharacter() {
         return character;
     }
-// setters
+
+    // setters
     public void setNames(String names) {
         this.names = names;
     }
-    public void setCharacter(String character) {
+    public void setCharacter(Characters character) {
         this.character = character;
     }
 }
-*/
+
