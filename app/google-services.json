@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1012632353670",
+    "firebase_url": "https://mafia-2ded5.firebaseio.com",
+    "project_id": "mafia-2ded5",
+    "storage_bucket": "mafia-2ded5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012632353670:android:939508d2143d02a3",
+        "android_client_info": {
+          "package_name": "com.godofmafia.godofmafia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012632353670-qa4fradghiv92rtgsreot08p9cm4tft8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.godofmafia.godofmafia",
+            "certificate_hash": "fd7e04ae08e31061b32ec322257398794a3d4a44"
+          }
+        },
+        {
+          "client_id": "1012632353670-rqc6jq2jtsubmtjjqt6t1rfn22mkj1fm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEanAvq8asZU_QVBhSkG-2flVyQxrSBFo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012632353670-rqc6jq2jtsubmtjjqt6t1rfn22mkj1fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
