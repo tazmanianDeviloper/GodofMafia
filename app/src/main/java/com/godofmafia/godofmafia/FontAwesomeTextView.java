@@ -45,5 +45,9 @@ public class FontAwesomeTextView extends AppCompatTextView {
 
     }
 }
+
+ implementation 'com.google.firebase:firebase-firestore:20.0.0'
+ implementation 'com.google.firebase:firebase-core:17.0.0'
+ implementation 'androidx:multidex:2.0.1'
 */
 

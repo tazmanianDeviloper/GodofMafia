@@ -11,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     // XML layout
     RelativeLayout secondActLayout;
@@ -18,6 +20,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     ImageView settingsButton;
     TextView confirmButton;
     TextView sunOrMoon;
+
+    //private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

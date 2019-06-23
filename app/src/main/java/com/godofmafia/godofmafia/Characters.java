@@ -1,6 +1,6 @@
 package com.godofmafia.godofmafia;
 
-class Characters {
+/*class Characters {
 
    String name;
    String description;
@@ -20,6 +20,6 @@ class Characters {
     void setDescription(String description) {
         this.description = description;
     }
-}
+}*/
 
 

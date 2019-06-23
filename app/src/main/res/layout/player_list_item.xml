@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/player_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginEnd="5dp"
+    app:cardBackgroundColor="#FFFFE8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/avatarOrPic"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="30sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:fontFamily= "@font/font_awesome_5_pro_light_300"
+            android:text="\uf007" />
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@+id/characterImage"
+            android:layout_toStartOf="@+id/characterImage"
+            android:layout_toRightOf="@+id/avatarOrPic"
+            android:layout_toEndOf="@+id/avatarOrPic"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:text="text"
+            />
+
+        <TextView
+            android:id="@+id/characterImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:textSize="30sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:fontFamily= "@font/font_awesome_5_pro_light_300"
+            android:text="\uf057" />
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

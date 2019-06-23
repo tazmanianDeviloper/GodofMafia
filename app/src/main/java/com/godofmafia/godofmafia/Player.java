@@ -1,9 +1,13 @@
 package com.godofmafia.godofmafia;
 
+/*
+import android.media.Image;
+
 class Player extends Characters {
 
     String names;
     Characters character;
+    Image image;
 
     // getters
     public String getNames() {
@@ -11,6 +15,9 @@ class Player extends Characters {
     }
     public Characters getCharacter() {
         return character;
+    }
+    public Image getImage() {
+        return image;
     }
 
     // setters
@@ -20,5 +27,9 @@ class Player extends Characters {
     public void setCharacter(Characters character) {
         this.character = character;
     }
+    public void setImage(Image image) {
+        this.image = image;
+    }
 }
+*/
 
