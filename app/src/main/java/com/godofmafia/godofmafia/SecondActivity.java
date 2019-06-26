@@ -1,6 +1,7 @@
 package com.godofmafia.godofmafia;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +21,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     ImageView settingsButton;
     TextView confirmButton;
     TextView sunOrMoon;
+    RecyclerView playersList;
 
-    //private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     @Override
@@ -30,6 +32,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.second_activity);
 
         secondActLayout = findViewById(R.id.second_act_layout);
+
+        playersList = findViewById(R.id.players_recycler_view);
 
         settingsButton = findViewById(R.id.settings_button);
         confirmButton = findViewById(R.id.confirm_button);
