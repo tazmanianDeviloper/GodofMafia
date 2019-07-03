@@ -1,7 +1,6 @@
 package com.godofmafia.godofmafia;
 /*
 
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -35,19 +34,12 @@ public class FontAwesomeTextView extends AppCompatTextView {
 
 
         // Regular Typeface
-*/
-/*        Typeface rtf = Typeface.createFromAsset
+        Typeface rtf = Typeface.createFromAsset
                 (getContext().getAssets(), "font/font_awesome_5_pro_regular_400.otf");
-        setTypeface (rtf);*//*
-
-
-
-
+        setTypeface (rtf);
     }
 }
-
- implementation 'com.google.firebase:firebase-firestore:20.0.0'
- implementation 'com.google.firebase:firebase-core:17.0.0'
- implementation 'androidx:multidex:2.0.1'
 */
+
+
 

@@ -34,6 +34,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
     // key value constant for db map (line 136)
     private static final String KEY_NAME = "name";
+    private static final String KEY_AVATAR = "avatar";
+    private static final String KEY_ICON = "icon";
+
     // database reference
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -46,16 +49,21 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     ImageView settingsButton;
     TextView sunOrMoon;
 
+    TextView playerAvatar;
+    TextView characterImage;
+
     // counter
     private static int playerSum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.first_activity);
 
         firstActLayout = findViewById(R.id.first_act_layout);
         numberOfPlayers = findViewById(R.id.number_of_players);
+        //
         addPlayer = findViewById(R.id.add_player);
         doneButton = findViewById(R.id.done_button);
         settingsButton = findViewById(R.id.settings_button);
@@ -66,6 +74,12 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         settingsButton.setOnClickListener(this);
         numberOfPlayers.setOnClickListener(this);
         sunOrMoon.setOnClickListener(this);
+
+        //setContentView(R.layout.player_list_item);
+
+        playerAvatar = findViewById(R.id.avatar);
+        characterImage = findViewById(R.id.icon);
+
     }
 
     @Override
@@ -122,6 +136,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     namesArray.add(addPlayer.getText().toString());
                     // add players' names to a String variable for db map
                     String nameInput = addPlayer.getText().toString();
+                    String avatarInput = playerAvatar.getText().toString();
+                    String characterInput = characterImage.getText().toString();
                     // clear the TextView for the next name.
                     addPlayer.getText().clear();
                     // increment the total number of players.
@@ -131,14 +147,17 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     // display the total number of players next the hash tag.
                     numberOfPlayers.setText(String.valueOf(playerSum));
 
-                    // push: adding a new document (external collection)
-                    Map <String, Object> name = new HashMap<>();
-                    name.put(KEY_NAME, nameInput);
+                    // push: adding a new document to db (external collection)
+                    Map <String, Object> player = new HashMap<>();
+                    player.put(KEY_NAME, nameInput);
+                    player.put(KEY_AVATAR, avatarInput);
+                    player.put(KEY_ICON, characterInput);
+
                     db.collection("Players")
                             // incrementing the document with every iteration, thus creating a new
                             .document("Player_".concat(String.valueOf(playerSum)))
                             // adding a new name to each new document (player)
-                            .set(name)
+                            .set(player)
                             // debug
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

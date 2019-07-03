@@ -25,9 +25,9 @@ public class PlayerAdapter extends FirestoreRecyclerAdapter <PlayerList, PlayerA
 // RecyclerView method
     @Override
     protected void onBindViewHolder(@NonNull PlayerListHolder holder, int position, @NonNull PlayerList model) {
-        holder.playerAvatar.setText(model.getAvatarOrImage());
-        holder.playerName.setText(model.getPlayerName());
-        holder.characterImage.setText(model.getCharacterImage());
+        holder.playerAvatar.setText(model.getAvatar());
+        holder.playerName.setText(model.getName());
+        holder.characterImage.setText(model.getIcon());
     }
 
 // RecyclerView method
@@ -51,9 +51,9 @@ public class PlayerAdapter extends FirestoreRecyclerAdapter <PlayerList, PlayerA
             super(itemView);
 
             // XML items passed to corresponding java items above
-            playerAvatar = itemView.findViewById(R.id.avatarOrPic);
+            playerAvatar = itemView.findViewById(R.id.avatar);
             playerName = itemView.findViewById(R.id.playerName);
-            characterImage = itemView.findViewById(R.id.characterImage);
+            characterImage = itemView.findViewById(R.id.icon);
         }
     }
 }

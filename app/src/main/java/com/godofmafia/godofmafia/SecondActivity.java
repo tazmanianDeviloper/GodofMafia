@@ -1,18 +1,22 @@
 package com.godofmafia.godofmafia;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     // XML layout
@@ -21,10 +25,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     ImageView settingsButton;
     TextView confirmButton;
     TextView sunOrMoon;
-    RecyclerView playersList;
+
+    RecyclerView playersListRecyclerView;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference playerRef = db.collection("Players");
 
+    private PlayerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +40,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
         secondActLayout = findViewById(R.id.second_act_layout);
 
-        playersList = findViewById(R.id.players_recycler_view);
-
         settingsButton = findViewById(R.id.settings_button);
         confirmButton = findViewById(R.id.confirm_button);
         sunOrMoon = findViewById(R.id.sun_or_moon);
@@ -42,6 +47,35 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         settingsButton.setOnClickListener(this);
         confirmButton.setOnClickListener(this);
         sunOrMoon.setOnClickListener(this);
+
+        setUpRecyclerView();
+    }
+
+    private void setUpRecyclerView(){
+       Query query = playerRef.orderBy("name", Query.Direction.ASCENDING);
+
+        FirestoreRecyclerOptions<PlayerList> options = new FirestoreRecyclerOptions.Builder<PlayerList>()
+                .setQuery(query, PlayerList.class)
+                .build();
+
+        adapter = new PlayerAdapter(options);
+
+        RecyclerView playersListRecyclerView = findViewById(R.id.players_recycler_view);
+        playersListRecyclerView.setHasFixedSize(true);
+        playersListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        playersListRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
     @Override
