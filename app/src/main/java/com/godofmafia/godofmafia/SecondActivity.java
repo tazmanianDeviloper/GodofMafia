@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -26,11 +27,11 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     TextView confirmButton;
     TextView sunOrMoon;
 
-    RecyclerView playersListRecyclerView;
-
+    // pull players' info from db by fallowing references
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference playerRef = db.collection("Players");
 
+    // object of PlayerAdapter class which us an extension of fireStoreRecycler adapter
     private PlayerAdapter adapter;
 
     @Override
@@ -51,33 +52,65 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         setUpRecyclerView();
     }
 
+    // fireStoreRecyclerView and corresponding buttons
     private void setUpRecyclerView(){
        Query query = playerRef.orderBy("name", Query.Direction.ASCENDING);
 
+        // class with items in the view holder, the adapter mapping those items, and the query
         FirestoreRecyclerOptions<PlayerList> options = new FirestoreRecyclerOptions.Builder<PlayerList>()
                 .setQuery(query, PlayerList.class)
                 .build();
 
+        // object of PlayerAdapter class contains attributes and interfaces
         adapter = new PlayerAdapter(options);
 
+        // the recyclerView in the XML and its attributes
         RecyclerView playersListRecyclerView = findViewById(R.id.players_recycler_view);
         playersListRecyclerView.setHasFixedSize(true);
         playersListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         playersListRecyclerView.setAdapter(adapter);
+
+        // buttons within each view of the recyclerView (interface)
+        adapter.setOnItemClickListener(new PlayerAdapter.onItemClickListener() {
+
+            @Override
+            public void onAvatarClick(DocumentSnapshot documentSnapshot, int position) {
+                //PlayerList playerList = documentSnapshot.toObject(PlayerList.class);
+                // String avatar = documentSnapshot.getId();
+                Toast.makeText(SecondActivity.this, "avatar clicked", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onNameClick(DocumentSnapshot documentSnapshot, int position) {
+                Toast.makeText(SecondActivity.this, "name clicked", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onIconClick(DocumentSnapshot documentSnapshot, int position) {
+                Toast.makeText(SecondActivity.this, "icon clicked", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
     }
 
+    // start listening when activity starts
     @Override
     protected void onStart() {
         super.onStart();
         adapter.startListening();
     }
 
+    // stop listening when activity goes into the background
     @Override
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
     }
 
+    // buttons in the layout, outside of the recyclerView
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -100,6 +133,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    // third activity to start the game
     public void openThirdActivity(){
         Intent intent2 = new Intent(this, ThirdActivity.class);
         startActivity(intent2);
