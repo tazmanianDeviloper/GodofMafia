@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/second_act_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -103,5 +104,53 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         />
+
+    <RelativeLayout
+        android:id="@+id/cameraPopUp"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:gravity="center|top"
+        android:visibility="invisible">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/picB4ChangeBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/picB4Change"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:textSize="150sp"
+                android:fontFamily= "@font/font_awesome_5_pro_light_300"
+                android:text="\uf007" />
+
+            <TextView
+                android:id="@+id/cameraIcon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_awesome_5_pro_light_300"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="\uf030"
+                android:textSize="30sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/picB4ChangeBack"
+            android:text="Cancel" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
