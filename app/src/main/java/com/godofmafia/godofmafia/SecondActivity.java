@@ -1,12 +1,15 @@
 package com.godofmafia.godofmafia;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +23,11 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.type.Date;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     // main layout
@@ -34,7 +40,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     // avatar and camera button layout
     RelativeLayout cameraPopUp;
     // attributes
-    TextView picB4Change;
+    ImageView picB4Change;
     TextView cameraIcon;
     Button cancel;
 
@@ -85,6 +91,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         // buttons within each view of the recyclerView (interface)
         adapter.setOnItemClickListener(new PlayerAdapter.onItemClickListener() {
 
+            // first button from left
             @Override
             public void onAvatarClick(DocumentSnapshot documentSnapshot, int position) {
                 //PlayerList playerList = documentSnapshot.toObject(PlayerList.class);
@@ -99,17 +106,17 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                 cameraPopUp.setVisibility(View.VISIBLE);
 
+                // to take a picture and assigning it to a player and db
                 cameraIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // TODO: 7/10/2019 Open Camera
                         Intent lunchCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        if (lunchCamera.resolveActivity(getPackageManager()) != null) {
-                            File picturefile = null;
-
-                        }
+                        startActivityForResult(lunchCamera, 0);
                     }
                 });
+
+                // to close picture taking window
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -119,19 +126,28 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
             }
 
+            // middle button
             @Override
             public void onNameClick(DocumentSnapshot documentSnapshot, int position) {
                 Toast.makeText(SecondActivity.this, "name clicked", Toast.LENGTH_LONG).show();
 
             }
 
+            // last button
             @Override
             public void onIconClick(DocumentSnapshot documentSnapshot, int position) {
                 Toast.makeText(SecondActivity.this, "icon clicked", Toast.LENGTH_LONG).show();
 
             }
         });
+    }
 
+    // updating players' avatar in the adapter as well as the db
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap =(Bitmap)data.getExtras().get("data");
+        picB4Change.setImageBitmap(bitmap);
     }
 
     // start listening when activity starts
