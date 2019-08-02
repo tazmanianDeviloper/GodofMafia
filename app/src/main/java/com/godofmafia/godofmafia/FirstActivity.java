@@ -33,9 +33,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     private static final List<String> namesArray = new ArrayList<>();
 
     // key value constant for db map (line 136)
-    private static final String KEY_NAME = "name";
-    private static final String KEY_AVATAR = "avatar";
-    private static final String KEY_ICON = "icon";
+    static final String KEY_NAME = "name";
+    static final String KEY_AVATAR = "avatar";
+    static final String KEY_ICON = "icon";
 
     // database reference
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -48,7 +48,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     TextView doneButton;
     ImageView settingsButton;
     TextView sunOrMoon;
-
+    // invisible attributes added only for db
     TextView playerAvatar;
     TextView characterImage;
 
@@ -136,7 +136,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     namesArray.add(addPlayer.getText().toString());
                     // add players' names to a String variable for db map
                     String nameInput = addPlayer.getText().toString();
+                    // add player's default avatar to a String variable for db map
                     String avatarInput = playerAvatar.getText().toString();
+                    // add a default character icon to a String for db map
                     String characterInput = characterImage.getText().toString();
                     // clear the TextView for the next name.
                     addPlayer.getText().clear();

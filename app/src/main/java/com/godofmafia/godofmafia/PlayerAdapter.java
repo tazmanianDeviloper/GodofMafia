@@ -89,9 +89,7 @@ public class PlayerAdapter extends FirestoreRecyclerAdapter <PlayerList, PlayerA
                     }
                 }
             });
-
         }
-
     }
 
     // interface for each button with different implementations in the Main (SecondActivity)
@@ -99,7 +97,6 @@ public class PlayerAdapter extends FirestoreRecyclerAdapter <PlayerList, PlayerA
         void onAvatarClick(DocumentSnapshot documentSnapshot, int position);
         void onNameClick(DocumentSnapshot documentSnapshot, int position);
         void onIconClick(DocumentSnapshot documentSnapshot, int position);
-
     }
 
     // object of the ClickListener class for my interface
